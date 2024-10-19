@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Website Plan</title>
     <link rel="shortcut icon" type="x-icon" href="https://i.ytimg.com/vi/bDCWT63o0C4/maxresdefault.jpg">
-    <style>
+        <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -117,7 +117,7 @@ body {
   resize: none;
 }
 
-.send-btn {
+.goButton {
   color: white;
   background: linear-gradient(to right, #4776E6 0%, #7f47e6 100%);
   padding: 6px 20px;
@@ -129,7 +129,7 @@ body {
   transition: 0.4s;
 }
 
-.send-btn:hover{
+.goButton:hover{
   transform: scale(1.2);
   transition: 0.4s;
 }
@@ -498,27 +498,35 @@ body {
                     <textarea id="message" name="message" required spellcheck="false" autocomplete="off"
                         placeholder="A description of the website you want.."></textarea>
                 </div>
-                <div class="dropbox">
-                  <label for="message" style="color: #fff; font-size: 23px;"><b>Choose your website plan here:</b></label>
-                  <select style="margin-bottom: 20px;">
-                    <option>
-                      Choose your website plan here:
-                    </option>
-                    <option>
-                      Basic - ₹1,999
-                    </option>
-                    <option>
-                      Standard - ₹5,999
-                    </option>
-                    <option>
-                      Premium - ₹8,999
-                    </option>
-                  </select>
-                </div>
-
-                <div class="form-group result-container">
-                  <a href="file:///Users/obelixthegaul/Downloads/website-pay.html" class="send-btn" target="_blank">Send Website plan</a>
-                </div>
+                <label for="pageSelect" style="font-size: 30px; color: #fff;">Choose your website plan:</label>
+                <select id="pageSelect">
+                    <option value="">--Select a page--</option>
+                    <option value="file:///Users/obelixthegaul/Downloads/pay-basic.html">Basic plan ₹1,999</option>
+                    <option value="file:///Users/obelixthegaul/Downloads/pay-standard.html  ">Standard plan ₹5,999</option>
+                    <option value="file:///Users/obelixthegaul/Downloads/pay-premium.html">Premium plan ₹8,999</option>
+                </select>
+                <br><br>
+                <button id="goButton" onclick="navigate()" style="color: white;
+                background: linear-gradient(to right, #4776E6 0%, #7f47e6 100%);
+                padding: 6px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 15px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: 0.4s;">Send website plan</button>
+            
+                <script>
+                    function navigate() {
+                        const select = document.getElementById('pageSelect');
+                        const selectedValue = select.value;
+                        if (selectedValue) {
+                            window.location.href = selectedValue;
+                        } else {
+                            alert('Please select a page to continue with the payment.');
+                        }
+                    }
+                </script>
                 <h1 style="font-size: 20px; color: #fff;">WE DO HTML & CSS ONLY!!!</h1>
             </form>
         </div>
